@@ -1,6 +1,6 @@
 {
     "name": "monomelodies/reflex",
-    "description": "Reflection utilities for PHP5+",
+    "description": "Reflection utilities for PHP7+",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -9,5 +9,7 @@
             "email": "marijn@monomelodies.nl"
         }
     ],
-    "require": {}
+    "require": {
+        "php": ">=7"
+    }
 }
