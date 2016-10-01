@@ -5,6 +5,7 @@ namespace Monomelodies\Reflex;
 use ReflectionMethod;
 use ReflectionFunction;
 use ReflectionFunctionAbstract;
+use DomainException;
 
 class AnyCallable
 {
