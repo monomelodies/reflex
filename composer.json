@@ -1,0 +1,13 @@
+{
+    "name": "monomelodies/reflex",
+    "description": "Reflection utilities for PHP5+",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marijn Ophorst",
+            "email": "marijn@monomelodies.nl"
+        }
+    ],
+    "require": {}
+}
