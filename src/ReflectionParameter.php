@@ -12,7 +12,7 @@ class ReflectionParameter extends \ReflectionParameter
         if (is_object($param)) {
             if ($compare = $this->getType()) {
                 $compare = $compare->__toString();
-                if ($oaram instanceof $compare) {
+                if ($param instanceof $compare) {
                     return $compare;
                 }
             }
