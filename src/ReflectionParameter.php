@@ -4,7 +4,7 @@ namespace Monomelodies\Reflex;
 
 class ReflectionParameter extends \ReflectionParameter
 {
-    public function getNormalisedType($param = null)
+    public function getNormalisedType($param = null) : string
     {
         if (!isset($param)) {
             $param = $this->getType();
@@ -16,15 +16,18 @@ class ReflectionParameter extends \ReflectionParameter
                     return $compare;
                 }
             }
-            return get_class($type);
+            return get_class($param);
         }
-        return (new ReflectionType($param))->toNormalisedString();
-    }
-
-    public function getType() : ReflectionType
-    {
-        $type = parent::getType();
-        return new ReflectionType($type ? $type->__toString() : null);
+        if (is_callable($param)) {
+            return 'callable';
+        }
+        $type = gettype($param);
+        switch ($type) {
+            case 'integer': return 'int';
+            case 'boolean': return 'bool';
+            case 'double': return 'float';
+            default: return $type;
+        }
     }
 }
 
