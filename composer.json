@@ -14,7 +14,11 @@
     },
     "autoload": {
         "psr-4": {
-            "Monomelodies\\Reflex\\": "./src"
+            "Monomelodies\\Reflex\\": "./src",
+            "Tests\\": "./classes-for-testing"
         }
+    },
+    "require-dev": {
+        "toast/unit": "^1.3"
     }
 }
