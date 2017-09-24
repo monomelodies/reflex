@@ -4,9 +4,50 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5f27afc59cfe8cb22983fd03b06af148",
-    "content-hash": "a07e018a823281f03abbdc138bee2991",
-    "packages": [],
+    "hash": "5b425240e9981070134319731b50236b",
+    "content-hash": "33f21314734d9bc91dbcd246c4174c66",
+    "packages": [
+        {
+            "name": "zeptech/annotations",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pgraham/php-annotations.git",
+                "reference": "9cd042daa9ace184d04b49f0605edf73f19a9c71"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pgraham/php-annotations/zipball/9cd042daa9ace184d04b49f0605edf73f19a9c71",
+                "reference": "9cd042daa9ace184d04b49f0605edf73f19a9c71",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "zpt\\anno": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD"
+            ],
+            "authors": [
+                {
+                    "name": "Philip Graham",
+                    "email": "philip@zeptech.ca"
+                }
+            ],
+            "description": "DOC Block annotation parsing for PHP",
+            "homepage": "https://github.com/pgraham/php-annotations",
+            "keywords": [
+                "annotations"
+            ],
+            "time": "2013-05-29 02:35:23"
+        }
+    ],
     "packages-dev": [
         {
             "name": "monomelodies/kingconf",
