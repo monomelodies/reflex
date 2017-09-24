@@ -1,6 +1,6 @@
 <?php
 
-namespace Reflex;
+namespace Monomelodies\Reflex;
 
 class ReflectionType extends \ReflectionType
 {
