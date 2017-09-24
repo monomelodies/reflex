@@ -1,0 +1,6 @@
+{
+    "src": "src",
+    "tests": "tests",
+    "includePath": [],
+    "bootstrap": ["vendor/autoload.php"]
+}
