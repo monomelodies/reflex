@@ -1,0 +1,213 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "5f27afc59cfe8cb22983fd03b06af148",
+    "content-hash": "a07e018a823281f03abbdc138bee2991",
+    "packages": [],
+    "packages-dev": [
+        {
+            "name": "monomelodies/kingconf",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/monomelodies/kingconf.git",
+                "reference": "350bf4e1f8163b5843f9dec82bd6230968166015"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/monomelodies/kingconf/zipball/350bf4e1f8163b5843f9dec82bd6230968166015",
+                "reference": "350bf4e1f8163b5843f9dec82bd6230968166015",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4",
+                "symfony/yaml": "*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": ">=4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Monomelodies\\Kingconf\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marijn Ophorst",
+                    "email": "marijn@monomelodies.nl"
+                }
+            ],
+            "description": "Load configuration in any sane format",
+            "keywords": [
+                "config",
+                "configuration",
+                "ini",
+                "json",
+                "loader",
+                "php",
+                "xml",
+                "yaml"
+            ],
+            "time": "2016-07-15 06:21:55"
+        },
+        {
+            "name": "simoneast/simple-ansi-colors",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SimonEast/Simple-Ansi-Colors.git",
+                "reference": "7b0abb5d779e25fffd26bcceb3d88278d1c064ed"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SimonEast/Simple-Ansi-Colors/zipball/7b0abb5d779e25fffd26bcceb3d88278d1c064ed",
+                "reference": "7b0abb5d779e25fffd26bcceb3d88278d1c064ed",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Ansi": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Simon East",
+                    "email": "simon@yump.com.au"
+                }
+            ],
+            "description": "Simple PHP class for converting basic HTML-like color tags into ANSI escape codes for use in console apps and scripts. Auto-detection for Windows/Ansicon users included.",
+            "homepage": "https://github.com/SimonEast/Simple-Ansi-Colors",
+            "keywords": [
+                "ansi",
+                "ansicon",
+                "color",
+                "colors",
+                "colour",
+                "colours",
+                "console"
+            ],
+            "time": "2015-11-24 03:03:27"
+        },
+        {
+            "name": "symfony/yaml",
+            "version": "v3.3.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/yaml.git",
+                "reference": "1d8c2a99c80862bdc3af94c1781bf70f86bccac0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/1d8c2a99c80862bdc3af94c1781bf70f86bccac0",
+                "reference": "1d8c2a99c80862bdc3af94c1781bf70f86bccac0",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5.9|>=7.0.8"
+            },
+            "require-dev": {
+                "symfony/console": "~2.8|~3.0"
+            },
+            "suggest": {
+                "symfony/console": "For validating YAML files using the lint command"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Yaml\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Yaml Component",
+            "homepage": "https://symfony.com",
+            "time": "2017-07-29 21:54:42"
+        },
+        {
+            "name": "toast/unit",
+            "version": "1.3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/toast-php/unit.git",
+                "reference": "4d9076bcb36a90ecc53b4a750a9f929c10194510"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/toast-php/unit/zipball/4d9076bcb36a90ecc53b4a750a9f929c10194510",
+                "reference": "4d9076bcb36a90ecc53b4a750a9f929c10194510",
+                "shasum": ""
+            },
+            "require": {
+                "monomelodies/kingconf": "^1.1.0",
+                "php": ">=7",
+                "simoneast/simple-ansi-colors": "^1.0"
+            },
+            "bin": [
+                "bin/toast"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Toast\\Unit\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marijn Ophorst",
+                    "email": "marijn@monomelodies.nl"
+                }
+            ],
+            "description": "Super-simple unit testing for PHP7",
+            "time": "2017-09-17 16:24:17"
+        }
+    ],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=7"
+    },
+    "platform-dev": []
+}
