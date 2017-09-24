@@ -2,6 +2,8 @@
 
 namespace Monomelodies\Reflex;
 
+use zpt\anno\Annotations;
+
 trait FunctionTrait
 {
     /**
