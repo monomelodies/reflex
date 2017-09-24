@@ -12,6 +12,9 @@ $ composer require monomelodies/reflex
 
 ```
 
+## `Monomelodies\Reflex\ReflectionClass`
+Wrapper for `ReflectionClass`.
+
 ## The `AnyCallable` class
 
 ```php
