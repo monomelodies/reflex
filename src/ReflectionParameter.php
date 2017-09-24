@@ -1,6 +1,6 @@
 <?php
 
-namespace Reflex;
+namespace Monomelodies\Reflex;
 
 class ReflectionParameter extends \ReflectionParameter
 {
@@ -18,10 +18,10 @@ class ReflectionParameter extends \ReflectionParameter
             }
             return get_class($type);
         }
-        return new ReflectionType($param)->toNormalisedString();
+        return (new ReflectionType($param))->toNormalisedString();
     }
 
-    public function getType() : \ReflectionType
+    public function getType() : ReflectionType
     {
         $type = parent::getType();
         return new ReflectionType($type ? $type->__toString() : null);
