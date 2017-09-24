@@ -25,9 +25,9 @@ trait FunctionTrait
             if (!$param->hasType()) {
                 if (isset($annotations['param'][$i])) {
                     if (is_string($annotations['param']) && $i === 0) {
-                        $opts[] = extractTypeFromAnnotation($annotations['param']);
+                        $opts[] = $this->extractTypeFromAnnotation($annotations['param']);
                     } else {
-                        $opts[] = extractTypeFromAnnotation($annotations['param'][$i]);
+                        $opts[] = $this->extractTypeFromAnnotation($annotations['param'][$i]);
                     }
                 } else {
                     $opts[] = 'mixed';
@@ -60,6 +60,20 @@ trait FunctionTrait
             }
         }
         return $types;
+    }
+
+    /**
+     * Extract the type from the annotation.
+     *
+     * @param string $annotation
+     * @return string
+     */
+    private function extractTypeFromAnnotation(string $annotation) : string
+    {
+        if (!preg_match('@^([\w\\|]+)\s@', $annotation, $match)) {
+            return 'mixed';
+        }
+        return $match[1];
     }
 }
 
