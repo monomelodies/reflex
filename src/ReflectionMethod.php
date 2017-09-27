@@ -14,5 +14,11 @@ class ReflectionMethod extends \ReflectionMethod
         });
         return $parameters;
     }
+
+    public function getDeclaringClass() : ReflectionClass
+    {
+        $class = parent::getDeclaringClass();
+        return new ReflectionClass($class->getName());
+    }
 }
 
