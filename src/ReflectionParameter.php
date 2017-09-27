@@ -2,6 +2,8 @@
 
 namespace Monomelodies\Reflex;
 
+use Closure;
+
 class ReflectionParameter extends \ReflectionParameter
 {
     public function getNormalisedType($param = null) : string
@@ -9,7 +11,7 @@ class ReflectionParameter extends \ReflectionParameter
         if (!isset($param)) {
             $param = $this->getType();
         }
-        if (is_object($param)) {
+        if (is_object($param) && !($param instanceof Closure)) {
             if ($compare = $this->getType()) {
                 $compare = $compare->__toString();
                 if ($param instanceof $compare) {
@@ -26,6 +28,7 @@ class ReflectionParameter extends \ReflectionParameter
             case 'integer': return 'int';
             case 'boolean': return 'bool';
             case 'double': return 'float';
+            case 'Closure': return 'callable';
             default: return $type;
         }
     }
