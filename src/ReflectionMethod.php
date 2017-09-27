@@ -20,5 +20,11 @@ class ReflectionMethod extends \ReflectionMethod
         $class = parent::getDeclaringClass();
         return new ReflectionClass($class->getName());
     }
+
+    public function getPrototype() : ReflectionMethod
+    {
+        $prototype = parent::getPrototype();
+        return new ReflectionMethod($prototype->getDeclaringClass()->getName(), $prototype->getName());
+    }
 }
 
