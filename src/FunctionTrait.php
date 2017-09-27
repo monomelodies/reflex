@@ -39,7 +39,7 @@ trait FunctionTrait
         $options[] = $opts;
         $last = array_pop($params);
         if ($last->isOptional() && !$last->isVariadic()) {
-            $options = array_merge($options, $this->getPossibleCalls($fn, ...$params));
+            $options = array_merge($options, $this->getPossibleCalls(...$params));
         }
         return $options;
     }
