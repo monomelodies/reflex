@@ -4,7 +4,7 @@ namespace Monomelodies\Reflex;
 
 trait Doccomment
 {
-    public function getCleanDocComment(bool $strip_annotations = true) : string
+    public function getCleanedDocComment(bool $strip_annotations = true) : string
     {
         $doccomment = $this->getDocComment();
         $doccomment = preg_replace("@^/\*\*@", '', $doccomment);
