@@ -17,7 +17,7 @@ trait ClassTrait
         return $methods;
     }
 
-    public function getProperties(int $filter = null) : array
+    public function getProperties($filter = null) : array
     {
         $properties = is_null($filter) ? parent::getMethods() : parent::getMethods($filter);
         if ($properties) {
