@@ -5,6 +5,7 @@ namespace Monomelodies\Reflex;
 class ReflectionFunction extends \ReflectionFunction
 {
     use FunctionTrait;
+    use Doccomment;
 
     public function getParameters() : array
     {

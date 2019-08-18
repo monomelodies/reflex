@@ -6,6 +6,8 @@ use Closure;
 
 class ReflectionParameter extends \ReflectionParameter
 {
+    use Doccomment;
+
     public function getNormalisedType($param = null) : string
     {
         if (!isset($param)) {
