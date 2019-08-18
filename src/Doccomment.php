@@ -7,15 +7,13 @@ trait Doccomment
     public function getCleanedDocComment(bool $strip_annotations = true) : string
     {
         $doccomment = $this->getDocComment();
-        $doccomment = preg_replace("@^/\*\*@", '', $doccomment);
-        $doccomment = preg_replace("@\*/$@m", '', $doccomment);
+        $doccomment = preg_replace("@^/\*\*\n@", '', $doccomment);
+        $doccomment = preg_replace("@^\s*\*/$@m", '', $doccomment);
         if ($strip_annotations) {
             $doccomment = preg_replace("/^\s*\*\s*@\w+.*?$/m", '', $doccomment);
         }
-        $doccomment = preg_replace("@^\s*\*\s*@m", '', $doccomment);
-        $doccomment = str_replace("\n", ' ', $doccomment);
-        $doccomment = trim(preg_replace("@\s{2,}@", ' ', $doccomment));
-        return $doccomment;
+        $doccomment = preg_replace("@^\s*\*[ ]{0,1}@m", '', $doccomment);
+        return trim($doccomment);
     }
 }
 
