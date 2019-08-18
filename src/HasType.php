@@ -9,11 +9,15 @@ trait HasType
     /**
      * Shorthand method.
      *
-     * @return string
+     * @return string|null
      */
-    public function getNormalisedType() : string
+    public function getNormalisedType() :? string
     {
-        return $this->getType()->getName();
+        if ($type = $this->getType()) {
+            return $type->getName();
+        } else {
+            return null;
+        }
     }
 }
 
