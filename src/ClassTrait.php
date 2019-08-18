@@ -19,7 +19,7 @@ trait ClassTrait
 
     public function getProperties($filter = null) : array
     {
-        $properties = is_null($filter) ? parent::getMethods() : parent::getMethods($filter);
+        $properties = is_null($filter) ? parent::getProperties() : parent::getProperties($filter);
         if ($properties) {
             array_walk($properties, function (&$property) {
                 $property = new ReflectionProperty($this->getName(), $property->getName());
