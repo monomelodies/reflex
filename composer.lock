@@ -1,11 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "hash": "5b425240e9981070134319731b50236b",
-    "content-hash": "33f21314734d9bc91dbcd246c4174c66",
+    "content-hash": "7bcd23c8dc17af3eee0197632ba8535b",
     "packages": [
         {
             "name": "zeptech/annotations",
@@ -45,7 +44,7 @@
             "keywords": [
                 "annotations"
             ],
-            "time": "2013-05-29 02:35:23"
+            "time": "2013-05-29T02:35:23+00:00"
         }
     ],
     "packages-dev": [
@@ -97,7 +96,7 @@
                 "xml",
                 "yaml"
             ],
-            "time": "2016-07-15 06:21:55"
+            "time": "2016-07-15T06:21:55+00:00"
         },
         {
             "name": "simoneast/simple-ansi-colors",
@@ -143,7 +142,7 @@
                 "colours",
                 "console"
             ],
-            "time": "2015-11-24 03:03:27"
+            "time": "2015-11-24T03:03:27+00:00"
         },
         {
             "name": "symfony/yaml",
@@ -198,7 +197,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-07-29 21:54:42"
+            "time": "2017-07-29T21:54:42+00:00"
         },
         {
             "name": "toast/unit",
@@ -239,7 +238,7 @@
                 }
             ],
             "description": "Super-simple unit testing for PHP7",
-            "time": "2017-09-17 16:24:17"
+            "time": "2017-09-17T16:24:17+00:00"
         }
     ],
     "aliases": [],
@@ -248,7 +247,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7"
+        "php": ">=7.3"
     },
     "platform-dev": []
 }
