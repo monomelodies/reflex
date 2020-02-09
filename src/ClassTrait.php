@@ -33,20 +33,6 @@ trait ClassTrait
     }
 
     /**
-     * @return Monomelodies\Reflex\ReflectionProperty[]
-     */
-    public function getDefaultProperties() : array
-    {
-        $properties = parent::getDefaultProperties();
-        if ($properties) {
-            array_walk($properties, function (&$property) {
-                $property = new ReflectionProperty($this->getName(), $property->getName());
-            });
-        }
-        return $properties;
-    }
-
-    /**
      * @param int|null $filter
      * @return Monomelodies\Reflex\ReflectionProperty[]
      */
