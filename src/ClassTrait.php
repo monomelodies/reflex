@@ -4,6 +4,10 @@ namespace Monomelodies\Reflex;
 
 trait ClassTrait
 {
+    /**
+     * @param int|null $filter
+     * @return Monomelodies\Reflex\ReflectionMethod[]
+     */
     public function getMethods($filter = null) : array
     {
         // Note: passing a null filter returns an empty array.
@@ -17,6 +21,35 @@ trait ClassTrait
         return $methods;
     }
 
+    /**
+     * @param string $name
+     * @return Monomelodies\Reflex\ReflectionMethod
+     * @throws ReflectionException
+     */
+    public function getMethod($name) : ReflectionMethod
+    {
+        $method = parent::getMethod($name);
+        return new ReflectionMethod($this->getName(), $method->getName());
+    }
+
+    /**
+     * @return Monomelodies\Reflex\ReflectionProperty[]
+     */
+    public function getDefaultProperties() : array
+    {
+        $properties = parent::getDefaultProperties();
+        if ($properties) {
+            array_walk($properties, function (&$property) {
+                $property = new ReflectionProperty($this->getName(), $property->getName());
+            });
+        }
+        return $properties;
+    }
+
+    /**
+     * @param int|null $filter
+     * @return Monomelodies\Reflex\ReflectionProperty[]
+     */
     public function getProperties($filter = null) : array
     {
         $properties = is_null($filter) ? parent::getProperties() : parent::getProperties($filter);
@@ -26,6 +59,17 @@ trait ClassTrait
             });
         }
         return $properties;
+    }
+
+    /**
+     * @param string $name
+     * @return Monomelodies\Reflex\ReflectionProperty
+     * @throws ReflectionException
+     */
+    public function getProperty($name) : ReflectionProperty
+    {
+        $property = parent::getProperty($name);
+        return new ReflectionProperty($this->getName(), $property->getName());
     }
 }
 
