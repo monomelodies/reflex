@@ -7,7 +7,7 @@ return function () : Generator {
         /** getType returns a wrapped instance of ReflectionType */
         yield function () use ($reflection) {
             $type = $reflection->getType();
-            assert($type instanceof Monomelodies\Reflex\ReflectionType);
+            assert($type instanceof ReflectionType);
         };
     };
 };
