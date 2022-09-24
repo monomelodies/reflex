@@ -11,5 +11,12 @@ final class FunctionTest extends TestCase
         $calls = $fn->getPossibleCalls(...$fn->getParameters());
         $this->assertEquals(count($calls), 3);
     }
+
+    public function testWeCanGetAllPossibleReturnTypes() : void
+    {
+        $fn = new ReflectionFunction(fn (string $foo, int $bar = 0, bool $baz = false) :? bool => false);
+        $returnTypes = $fn->getPossibleReturnTypes();
+        $this->assertEquals(count($returnTypes), 2);
+    }
 }
 
