@@ -1,6 +1,6 @@
 {
     "name": "monomelodies/reflex",
-    "description": "Reflection utilities for PHP7+",
+    "description": "Reflection utilities for PHP8+",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "php": ">=7.3",
+        "php": ">=8.1",
         "zeptech/annotations": "^1.1"
     },
     "autoload": {
@@ -20,6 +20,6 @@
         }
     },
     "require-dev": {
-        "toast/unit": "^2"
+        "phpunit/phpunit": "^9.5"
     }
 }
