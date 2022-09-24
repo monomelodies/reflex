@@ -33,7 +33,11 @@ trait FunctionTrait
                     $opts[] = 'mixed';
                 }
             } else {
-                $opts[] = $param->getType()->__toString();
+                $type = $param->getType()->__toString();
+                if (substr($type, 0, 1) == '?') {
+                    $type = substr($type, 1);
+                }
+                $opts[] = $type;
             }
         }
         $options[] = $opts;
