@@ -2,7 +2,9 @@
 
 namespace Monomelodies\Reflex;
 
-use ReflectionNamedParameter;
+use ReflectionNamedType;
+use ReflectionUnionType;
+use ReflectionIntersectionType;
 
 trait HasType
 {
