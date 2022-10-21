@@ -2,7 +2,10 @@
 
 namespace Monomelodies\Reflex;
 
-use zpt\anno\Annotations;
+use ReflectionType;
+use ReflectionNamedType;
+use ReflectionUnionType;
+use ReflectionIntersectionType;
 
 trait FunctionTrait
 {
@@ -18,34 +21,16 @@ trait FunctionTrait
         if (!count($params)) {
             return [[]];
         }
-        $options = [];
-        $opts = [];
-        $annotations = new Annotations($this);
-        foreach ($params as $i => $param) {
-            if (!$param->hasType()) {
-                if (isset($annotations['param'][$i])) {
-                    if (is_string($annotations['param']) && $i === 0) {
-                        $opts[] = $this->extractTypeFromAnnotation($annotations['param']);
-                    } else {
-                        $opts[] = $this->extractTypeFromAnnotation($annotations['param'][$i]);
-                    }
-                } else {
-                    $opts[] = 'mixed';
-                }
-            } else {
-                $type = $param->getType()->__toString();
-                if (substr($type, 0, 1) == '?') {
-                    $type = substr($type, 1);
-                }
-                $opts[] = $type;
-            }
-        }
-        $options[] = $opts;
+        $types = [];
+        array_walk($params, function (ReflectionParameter $param) use (&$types) {
+            $types[] = $param->getType();
+        });
+        $options = $this->buildOptions(...$types);
         $last = array_pop($params);
         if ($last->isOptional() && !$last->isVariadic()) {
             $options = array_merge($options, $this->getPossibleCalls(...$params));
         }
-        return $options;
+        return array_unique($options, SORT_REGULAR);
     }
 
     /**
@@ -67,17 +52,49 @@ trait FunctionTrait
     }
 
     /**
-     * Extract the type from the annotation.
+     * Internal method to recursively build an list of ways this function
+     * might be invoked.
      *
-     * @param string $annotation
-     * @return string
+     * @param null|ReflectionType ...$types
+     * @return array
      */
-    private function extractTypeFromAnnotation(string $annotation) : string
+    private function buildOptions(?ReflectionType ...$types) : array
     {
-        if (!preg_match('@^([\w\\|]+)\s@', $annotation, $match)) {
-            return 'mixed';
+        $options = [];
+        $params = [];
+        foreach ($types as $i => $type) {
+            if ($type === null) {
+                $type = 'null';
+            } else {
+                if ($type->allowsNull()) {
+                    $copyTypes = array_values($types);
+                    $copyTypes[$i] = null;
+                    $options = array_merge($options, $this->buildOptions(...$copyTypes));
+                }
+                if ($type instanceof ReflectionNamedType) {
+                    $type = "$type";
+                    if (substr($type, 0, 1) == '?') {
+                        $type = substr($type, 1);
+                    }
+                } elseif ($type instanceof ReflectionIntersectionType) {
+                    $type = $type->getTypes()[0]->__toString();
+                } elseif ($type instanceof ReflectionUnionType) {
+                    $subtypes = $type->getTypes();
+                    $type = array_shift($subtypes)->__toString();
+                    foreach ($subtypes as $subtype) {
+                        $copyTypes = array_values($types);
+                        $copyTypes[$i] = $subtype;
+                        $options = array_merge($options, $this->buildOptions(...$copyTypes));
+                    }
+                }
+            }
+            $params[] = $type;
         }
-        return $match[1];
+        while (end($params) === 'null') {
+            array_pop($params);
+        }
+        $options[] = $params;
+        return $options;
     }
 }
 
