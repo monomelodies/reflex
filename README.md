@@ -1,5 +1,5 @@
 # monomelodies/reflex
-Reflection utilities for PHP7+
+Reflection utilities for PHP8+
 
 Reflex offers extensions for PHP's built in reflection classes. These offer
 extra functionality for reflections, while respecting their respective
