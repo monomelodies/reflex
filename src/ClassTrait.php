@@ -8,7 +8,7 @@ trait ClassTrait
      * @param int|null $filter
      * @return Monomelodies\Reflex\ReflectionMethod[]
      */
-    public function getMethods($filter = null) : array
+    public function getMethods(?int $filter = null) : array
     {
         // Note: passing a null filter returns an empty array.
         // Seems to be a PHP bug.
@@ -36,7 +36,7 @@ trait ClassTrait
      * @param int|null $filter
      * @return Monomelodies\Reflex\ReflectionProperty[]
      */
-    public function getProperties($filter = null) : array
+    public function getProperties(?int $filter = null) : array
     {
         $properties = is_null($filter) ? parent::getProperties() : parent::getProperties($filter);
         if ($properties) {
